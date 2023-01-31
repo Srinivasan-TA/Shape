@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Shape {
     private String shapeType;
@@ -36,22 +37,22 @@ public class Shape {
         return area;
     }
     public static void main(String[] args) {
-
+        Logger l = Logger.getLogger("com.api.jar");
         Scanner sc=new Scanner(System.in);
         double[] shapeDimensions=new double[3];
 
-        System.out.println("Enter the type of shape");
+        l.info("Enter the type of shape");
         String shapeType=sc.next();
 
         for(int i=0;i<3;i++){
-            System.out.println("Enter the "+ i +"value");
+            l.info("Enter the "+ i +"value");
             shapeDimensions[i]=sc.nextInt();
         }
 
         Shape s1=new Shape(shapeType, shapeDimensions);
 
-        System.out.println("Area is "+ s1.getArea());
-        System.out.println("Perimeter is"+s1.getPerimeter());
+        l.info("Area is "+ s1.getArea());
+        l.info("Perimeter is"+s1.getPerimeter());
     }
 }
 
