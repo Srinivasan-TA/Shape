@@ -43,7 +43,6 @@ public class Shape {
 
         l.info("Enter the type of shape");
         String shapeType=sc.next();
-
         for(int i=0;i<3;i++){
             String e = "Enter the "+ i +"value";
             l.info(e);
