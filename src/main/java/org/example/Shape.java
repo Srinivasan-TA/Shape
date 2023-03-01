@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Shape {
@@ -43,17 +44,43 @@ public class Shape {
 
         l.info("Enter the type of shape");
         String shapeType=sc.next();
-        for(int i=0;i<3;i++){
-            String e = "Enter the "+ i +"value";
-            l.info(e);
-            shapeDimensions[i]=sc.nextInt();
+        Shape obj = new Shape(shapeType, shapeDimensions);
+        if(shapeType.equals("circle"))
+        {
+            l.info("Enter the radius ");
+            shapeDimensions[0] = sc.nextInt();
+            l.log(Level.INFO,() ->"Area of " + shapeType +": " +obj.getArea());
+            l.log(Level.INFO,() ->"Perimeter of " + shapeType +": " +obj.getPerimeter());
+        }
+        else if(shapeType.equals( "rectangle"))
+        {
+            l.info("Enter the length ");
+            shapeDimensions[0] = sc.nextInt();
+            l.info("Enter the breadth ");
+            shapeDimensions[1] = sc.nextInt();
+            l.log(Level.INFO,() ->"Area of " + shapeType +": " +obj.getArea());
+            l.log(Level.INFO,() ->"Perimeter of " + shapeType +": " + obj.getPerimeter());
         }
 
-        Shape s1=new Shape(shapeType, shapeDimensions);
+        else if(shapeType.equals( "triangle"))
+        {
+            l.info("Enter the base ");
+            shapeDimensions[0] = sc.nextInt();
+            l.info("Enter the height ");
+            shapeDimensions[1] = sc.nextInt();
+            l.info("Enter the length ");
+            shapeDimensions[2] = sc.nextInt();
+            l.log(Level.INFO,() ->"Area of " + shapeType +": " +obj.getArea());
+            l.log(Level.INFO,() ->"Perimeter of " + shapeType +": " + obj.getPerimeter());
+        }
+        else
+        {
+            l.info("The given shape is wrong");
+        }
 
-        l.info("Area is "+ s1.getArea());
-        l.info("Perimeter is"+s1.getPerimeter());
     }
 }
+
+
 
 
